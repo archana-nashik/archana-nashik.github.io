@@ -5,38 +5,45 @@ body {
 .container {
     width: 80%;
     margin: 0 auto;
-    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
 }
 
 h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    text-align: center;
 }
 
-#quiz {
-    margin-bottom: 2rem;
+.question {
+    margin-bottom: 20px;
 }
 
-#quiz p {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-#quiz img {
-    width: 100px;
+.question img {
+    width: 100%;
     height: auto;
-    margin-bottom: 1rem;
+    margin-bottom: 10px;
 }
 
-.answer-option {
-    display: inline-block;
-    margin-right: 1rem;
+.answers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-#next-question {
-    background-color: #007bff;
-    color: white;
-    padding: 0.5rem 1rem;
-    border: none;
+button {
+    padding: 10px;
+    border: 1px solid #ccc;
     cursor: pointer;
+}
+
+#feedback {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
 }
