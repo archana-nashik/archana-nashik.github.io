@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Rearrange Game</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        #container {
+            width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #word {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .letters {
+            display: inline-block;
+            margin: 5px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        .letters.correct {
+            background-color: #0f0;
+        }
+
+        .letters.incorrect {
+            background-color: #f00;
+        }
+
+        #submit {
+            background-color: #00f;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <p id="word"></p>
+        <div id="letters"></div>
+        <button id="submit">Submit</button>
+    </div>
+
+    <script>
+        const words = ['apple', 'banana', 'orange', 'grape'];
+        let currentWord = '';
+        let scrambledLetters = [];
+
+        function generateWord() {
+            const randomIndex = Math.floor(Math.random() * words.length);
+            currentWord = words[randomIndex];
+
+            scrambledLetters = currentWord.split('');
+            scrambledLetters.sort(() => Math.random() - 0.5);
+
+            const lettersContainer = document.getElementById('letters');
+            lettersContainer.innerHTML = '';
+
+            for (const letter of scrambledLetters) {
+                const letterElement = document.createElement('span');
+                letterElement.classList.add('letters');
+                letterElement.textContent = letter;
+
+                letterElement.addEventListener('click', () => {
+                    if (letterElement.classList.contains('correct')) {
+                        return;
+                    }
+
+                    const wordElement = document.getElementById('word');
+                    wordElement.textContent += letter;
+                    letterElement.classList.add('correct');
+                });
+
+                lettersContainer.appendChild(letterElement);
+            }
+        }
+
+        const submitButton = document.getElementById('submit');
+        submitButton.addEventListener('click', () => {
+            const guessedWord = document.getElementById('word').textContent;
+
+            if (guessedWord === currentWord) {
+                alert('Correct!');
+                generateWord();
+            } else {
+                alert('Incorrect!');
+                for (const letterElement of document.getElementsByClassName('letters')) {
+                    letterElement.classList.remove('correct');
+                    letterElement.classList.add('incorrect');
+                }
+            }
+        });
+
+        generateWord();
+    </script>
+</body>
+</html>
