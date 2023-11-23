@@ -3,17 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trivia Quiz</title>
-    <link rel="stylesheet" href="trivia1.css">
+    <title>Trivia Game</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Trivia Quiz</h1>
-        <div id="quiz">
+        <h1>Trivia Game</h1>
+
+        <div class="question">
+            <img src="question1.jpg" alt="What is the capital of France?">
+            <div class="answers">
+                <button onclick="checkAnswer('Paris')">Paris</button>
+                <button onclick="checkAnswer('London')">London</button>
+                <button onclick="checkAnswer('Rome')">Rome</button>
+                <button onclick="checkAnswer('Berlin')">Berlin</button>
+            </div>
+            <p id="feedback"></p>
         </div>
-        <button id="next-question">Next Question</button>
+
+        <div class="question">
+            <img src="question2.jpg" alt="What is the largest planet in our solar system?">
+            <div class="answers">
+                <button onclick="checkAnswer('Jupiter')">Jupiter</button>
+                <button onclick="checkAnswer('Saturn')">Saturn</button>
+                <button onclick="checkAnswer('Neptune')">Neptune</button>
+                <button onclick="checkAnswer('Uranus')">Uranus</button>
+            </div>
+            <p id="feedback"></p>
+        </div>
+
+        <div class="question">
+            <img src="question3.jpg" alt="Who is the author of the Harry Potter series?">
+            <div class="answers">
+                <button onclick="checkAnswer('J.K. Rowling')">J.K. Rowling</button>
+                <button onclick="checkAnswer('C.S. Lewis')">C.S. Lewis</button>
+                <button onclick="checkAnswer('Roald Dahl')">Roald Dahl</button>
+                <button onclick="checkAnswer('Philip Pullman')">Philip Pullman</button>
+            </div>
+            <p id="feedback"></p>
+        </div>
     </div>
 
-    <script src="trivia1.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
